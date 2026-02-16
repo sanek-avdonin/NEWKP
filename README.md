@@ -22,10 +22,22 @@ python -m kp_generator.app
 
 ## Сборка в .exe
 
+**Локально:**
 ```bash
 pip install pyinstaller
 build_exe.bat
 ```
+
+**Через GitHub Actions (автосборка при пуше тега):**  
+В репозитории настроен workflow `.github/workflows/windows-exe.yml`. Чтобы собрать EXE на GitHub и получить его в Releases:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+После успешной сборки: **GitHub → Releases** — там появится `KP_Generator.exe`.  
+**Tesseract в репозиторий не входит** — для OCR PDF-сканов положите папку `tesseract` (с `tesseract.exe` и `tessdata`) рядом с exe или установите Tesseract в систему (см. `kp_generator/TESSERACT_README.txt`).
 
 Или вручную — см. раздел «Сборка в один .exe» в **ИНСТРУКЦИЯ.md**.
 
